@@ -1,0 +1,112 @@
+:root {
+  --bgColor: #051821;
+  --primaryColor: #266867;
+  --secondaryColor: #f58800;
+  --primaryText: lightgrey;
+  --secondaryText: white;
+  --tertiaryText: rgb(90, 90, 90);
+  --wrong: rgb(174, 9, 9);
+}
+
+body {
+  font-family: "Ubuntu";
+  background-color: var(--bgColor);
+  color: var(--secondaryText);
+  font-size: 1.4rem;
+}
+
+h1 {
+  color: var(--primaryText);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px 6px 30px;
+}
+
+.buttons {
+  text-align: right;
+}
+
+.info {
+  color: var(--primaryText);
+}
+
+button {
+  background: var(--primaryColor);
+  border: 0;
+  padding: 5px 20px;
+  color: (var(--primaryText));
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#game {
+  line-height: 35px;
+  height: 105px;
+  overflow: hidden;
+  position: relative;
+}
+
+.word {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  margin: 0 5px;
+  font-size: 1.6rem;
+}
+
+#words {
+  filter: blur(5px);
+  color: var(--tertiaryText);
+}
+
+#game:focus #words {
+  filter: blur(0);
+}
+
+.focus-error {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  padding-top: 35px;
+}
+
+#game:focus .focus-error {
+  display: none;
+}
+
+.letter.correct {
+  color: var(--primaryColor);
+}
+
+.letter.incorrect {
+  color: var(--wrong);
+}
+
+@keyframes blink {
+  0%{
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#cursor {
+  width: 2px;
+  height: 1.6rem;
+  background: var(--secondaryText);
+  position: fixed;
+  top: 177px;
+  left: 11px;
+  animation: blink .4s infinite;
+}
+
+#game:focus #cursor {
+  
+}
